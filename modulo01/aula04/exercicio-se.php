@@ -10,7 +10,5 @@ if($n > 0){
     else {
         echo "Nulo";
     }
-    
 
-
-echo "<br> Pronto, terminou";
+    echo "<br> Pronto, terminou";
