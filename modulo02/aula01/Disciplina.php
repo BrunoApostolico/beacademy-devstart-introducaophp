@@ -3,7 +3,7 @@
 declare (strict_types=1);
 
 class Disciplina { //classe
-    public $nome; //atributos
-    public $decricao; //atributos
-    public $professor; //atributos
+    public string $nome; //atributos
+    public string $decricao; //atributos
+    public string $professor; //atributos
 }

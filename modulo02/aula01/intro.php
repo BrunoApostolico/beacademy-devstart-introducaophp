@@ -1,25 +1,18 @@
 <?php
 
 include 'Aluno.php';
+include 'Curso.php';
+include 'Professor.php';
+include 'Disciplina.php';
 
 $a1 = new Aluno(); //instanciando a classe
-$a1-> nome = 'Bruno';
+$a1-> nome = 'Bruno'; //Atribuindo valores aos atributos
 $a1-> cpf = '123.123.123-12';
 
 
-$aluno = [
-    'nome' => 'Bruno',
-    'cpf' => '057.829.017-00',
-];
+$cursoPHP = new Curso(); //objeto Curso
+$cursoPHP->nome = 'Introdução ao PHP';
+$cursoPHP->descricao = 'Aprender o basico e intermediário do PHP';
+$cursoPHP->cargaHoraria = 88;
 
-
-$aluno2 = [
-    'Nome' => 'Priscila',
-    'cpf' => '057.829.017-00',
-];
-
-
-$aluno3 = [
-    'NOME' => 'Eloah',
-    'cpf' => '057.829.017-00',
-];
+echo "Nome: {$a1->nome}";
