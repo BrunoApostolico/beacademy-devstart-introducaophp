@@ -17,7 +17,6 @@ function cadastro(){
         $arquivo = fopen('dados/contatos.csv','a+');
 
         fwrite($arquivo, "{$nome};{$email};{$telefone}".PHP_EOL);
-        
         fclose($arquivo);
 
         $mensagem = 'Pronto, Cadastro Realizado!';
@@ -31,8 +30,58 @@ function cadastro(){
 function listar(){
     
     $contatos = file('dados/contatos.csv'); //Lê um arquivo csv
-
     include 'telas/listar.php';
+}
+
+function excluir(){
+    $id = $_GET['id'];
+
+    $contatos = file('dados/contatos.csv'); //Lê um arquivo csv
+    
+    unset($contatos[$id]); //remove um item do arquivo
+
+    unlink('dados/contatos.csv'); //deleta o arquivo
+
+    $arquivo = fopen('dados/contatos.csv', 'a+'); //recria o arquivo
+
+    foreach($contatos as $cadaContato){
+        fwrite($arquivo, $cadaContato);
+    }
+    
+    $mensagem = 'Contato excluído com sucesso!';
+    
+    include 'telas/mensagem.php';
+}
+
+function editar(){
+    
+    $id = $_GET['id'];
+    $contatos = file('dados/contatos.csv'); //Lê um arquivo csv
+
+    if ($_POST){
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $telefone = $_POST['telefone'];
+
+        $contatos[$id] = "{$nome};{$email};{$telefone}".PHP_EOL;
+
+        unlink ('dados/contatos.csv');
+
+        $arquivo = fopen('dados/contatos.csv', 'a+');
+
+        foreach ($contatos as $cadaContato){
+            fwrite($arquivo,$cadaContato);
+        }
+
+        fclose($arquivo);
+        
+        $mensagem = 'Pronto, Editado com sucesso!';
+        include 'telas/mensagem.php';
+
+    }
+    
+    $dados = explode(';',$contatos[$id]); //quebra a linha com o separador ;
+    include 'telas/editar.php';
 }
 
 function relatorio(){
