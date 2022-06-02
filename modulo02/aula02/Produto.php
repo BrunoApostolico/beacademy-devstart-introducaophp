@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 class Produto
 {
-    //atributos - o que tem
+    //atributos: o que tem
     private string $nome; 
     private float $valor;
 
-    //metodos - o que pode fazer
+    //métodos: o que pode fazer
     public function pegarNome(): string 
     {
         return $this->nome;
