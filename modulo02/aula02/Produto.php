@@ -7,13 +7,14 @@ class Produto
     private string $nome; 
     private float $valor;
 
-    //métodos: o que pode fazer
-    public function pegarNome(): string 
+    //métodos: o que pode fazer: GET > Pega o dado, sempre retorna algo; SET > Altera o dado, dificilmente retorna algo.
+
+    public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function alterarNome(string $novoNome): void
+    public function setNome(string $novoNome): void
     {
         if(strlen($novoNome) < 3){
             die ('Nome não pode ter menos que 3 caracteres');
@@ -21,12 +22,12 @@ class Produto
                $this->nome = $novoNome;
     }
 
-    public function pegarValor(): float
+    public function getValor(): float
     {
         return $this->valor;
     }
 
-    public function alterarValor(float $novoValor): void
+    public function setValor(float $novoValor): void
     {
         if($novoValor < 0){
            die ('Ops, valor não pode ser negativo');
