@@ -4,8 +4,6 @@ include 'Produto.php';
 
 $p2 = new Produto();
 
-//echo $p2->teste('café'); //Chamando um método da classe produto
-
 $p1 = new Produto();
 $p1-> alterarNome('Tênis para corrida');
 $p1-> alterarValor(299);
